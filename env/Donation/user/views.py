@@ -73,7 +73,7 @@ def createUser(request):
 #  Update customer detail
 def updateUser(request,id):
 	
-	form  	 = UserForm(request.POST or None, instance=request.user)
+	form  	 = UserForm(request.POST or None,instance=request.user)
 	if form.is_valid():
 		form.save()
 		return redirect('uprofile')
@@ -94,14 +94,16 @@ def UserProfile(request,pk=None):
 	return render(request,'donation/profile.html',{'user':user})	
 
 def dona_list(request):
-	dona = Donation_list.objects.all()
-	if request.method=='POST':
+	if request.method == 'POST':
 		items = request.POST['items']
 		quantity = request.POST['quantity']
+		dona = Donation_list.objects.create(items=items,quantitiy=quantity)
+		dona.save()
+		return render(request,'donation/donation1.html')
 
-	    dona = Donation_list.objects.create(items=items,quantitiy=quantity)
-	    dona.save()	
-	    return render(request,'donation/donation.html')
+	
+	return render(request,'donation/donation.html')
+
 
 
 # Showing Donar list to Police

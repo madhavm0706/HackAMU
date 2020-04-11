@@ -20,7 +20,11 @@ class UserUpdate(models.Model):
 
 
 class Donation_list(models.Model):
+
     
+
     items = models.CharField(max_length=20)
-    quantitiy  = models.FloatField()
+    quantitiy  = models.IntegerField()
+
+	
        

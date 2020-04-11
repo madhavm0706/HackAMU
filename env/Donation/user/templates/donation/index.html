@@ -7,7 +7,7 @@
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="index.html"><span>H4N</span></a></h1>
+        <h1 class="text-light"><a href="i{% url 'index'%}"><span>H4N</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -16,12 +16,12 @@
         <ul>
           <li class="active"><a href="{% url 'index'%}">Home</a></li>
           <!-- <li><a href="#about">About Us</a></li> -->
-          <li><a href="{% url 'ulogin'%}">Login (for Donor)</a></li>
+          <li><a href="{% url 'ulogin'%}">Login (for Donor/Receiver)</a></li>
           <li><a href="{% url 'plogin'%}">Login (for Police)</a></li>
           <!-- <li><a href="#team">Team</a></li> -->
           <li class="drop-down"><a href="">Register Now</a>
             <ul>
-              <li><a href="{% url 'uregister' %}">Register (for Donor)</a></li>
+              <li><a href="{% url 'uregister' %}">Register (for Donor/Receiver)</a></li>
               <li><a href="{% url 'pregister'%}">Register (for Police)</a>
                 <!-- <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -57,7 +57,7 @@
               <div class="carousel-content container">
                 <h2 class="animated fadeInDown">Help 4 Needy <span></span></h2>
                 <p class="animated fadeInUp">Help the needy. Donate for needy.</p>
-                <a href="{% url 'uregister'%}" class="btn-get-started animated fadeInUp scrollto">Register (for Donor) </a>
+                <a href="{% url 'uregister'%}" class="btn-get-started animated fadeInUp scrollto">Register (for Donor/Receiver) </a>
                 <a href="{% url 'pregister'%}" class="btn-get-started animated fadeInUp scrollto">Register (for Police) </a>
               </div>
             </div>
@@ -150,7 +150,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>F4N</h3>
+            <h3>H4N</h3>
            
 
           <div class="col-lg-2 col-md-6 footer-links">

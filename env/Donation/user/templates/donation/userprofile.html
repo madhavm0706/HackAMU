@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'donation/base.html'%}
+{% load static%}
+{% block title%}Register{% endblock%}
+{% block body %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'uprofile'%}">My Profile <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Police Station</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'udonation' %}">Donate Items</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'logout'%}">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
         <div class="container">
                 <h2 class="text-center">{{title}}</h2>
             </div>
@@ -17,19 +46,27 @@
                     <form method="post" class="form-horizontal">
                           {% csrf_token %}
                           {% for field in form %}
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-sm-8">
-                                <span class="text-danger small">{{ field.errors }}</span>
-                                </div>
-                                <label class="control-label col-sm-4">{{ field.label_tag }}</label>
-                                <div class="col-sm-12">{{ field }}</div>
-                            </div>
-                        {% endfor %}
+                          
+                                  
+                                  <div class=" col-md-9 col-lg-9 "> 
+                                    <table class="table table-user-information">
+                                      <tbody>
+                                          <tr>
+                                          <td>{{ field.label_tag }}</td>
+                                          <td><div class="col-sm-12">{{ field }}</div></td>
+                                        </tr>
+                                        <tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                            {% endfor %}
+                            
+                        
                   
             
                       <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-success btn-lg">Save</button>
+                            <button type="submit" class="btn btn-success ">Save</button>
                            </div>
                        </div>
                     </form>
@@ -37,5 +74,4 @@
             </div>
              <br>
             </div>
-</body>
-</html>
+{% endblock%}
