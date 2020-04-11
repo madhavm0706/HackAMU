@@ -7,6 +7,7 @@ urlpatterns = [
       path('donar/',views.donar,name='donar'),
       path('register/user/',views.userRegister,name='uregister'),
       path('login/user/',views.UserLogin,name='ulogin'),
+      
       path('profile/user/',views.UserProfile,name='uprofile'),
       path('user/create/',views.createUser,name='ucreate'),
       path('update/<int:id>/',views.updateUser,name='uuprofile'),

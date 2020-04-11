@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login,logout
 from .forms import UserSignUpForm,PoliceSignUpForm,Dona_list, UserForm
 from django.db.models import Q
 
-from .models import User,Donation_list
+from .models import User,Donation_list, UserUpdate
 
 
 # Create your views here.
@@ -34,7 +34,7 @@ def userRegister(request):
 		if user is not None:
 			if user.is_active:
 				login(request,user)
-				return render(request,'donation/index2.html')
+				return render(request,'donation/profile.html')
 	context ={
 		'form':form
 	}			
@@ -68,11 +68,12 @@ def createUser(request):
 	'form':form,
 	'title':"Complete Your profile"
 	}
-	return render(request,'donation/userprofile.html',context)	
+	return render(request,'donation/profile.html',context)	
 
 #  Update customer detail
 def updateUser(request,id):
-	form  	 = UserForm(request.POST or None,instance=request.user)
+	
+	form  	 = UserForm(request.POST or None, instance=request.user)
 	if form.is_valid():
 		form.save()
 		return redirect('uprofile')
@@ -98,17 +99,17 @@ def dona_list(request):
 		items = request.POST['items']
 		quantity = request.POST['quantity']
 
-	dona = Donation_list.objects.create(items=items,quantitiy=quantity)
-	dona.save()	
-	return render(request,'donation/donation.html')
+	    dona = Donation_list.objects.create(items=items,quantitiy=quantity)
+	    dona.save()	
+	    return render(request,'donation/donation.html')
 
 
 # Showing Donar list to Police
 def donar(request):
-	r_object = Donation_list.objects.all()
+	r_object = UserUpdate.objects.all()
 	query 	= request.GET.get('q')
 	if query:
-		r_object=Donation_list.objects.filter(Q(rname__icontains=query)).distinct()
+		r_object=UserUpdate.objects.filter(Q(rname__icontains=query)).distinct()
 		return render(request,'donation/donar.html',{'r_object':r_object})
 	return render(request,'donation/donar.html',{'r_object':r_object})
 

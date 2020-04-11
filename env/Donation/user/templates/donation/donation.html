@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Donation Done</h1>
+     <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="items">Items</label>
+        <input type="text" name="items">
+        <label for="number">Quantity</label>
+        <input type="number" name="quantity">
+        
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
