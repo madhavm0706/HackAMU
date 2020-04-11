@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1 class="text-center text-danger"><strong>Donar</strong></h1>
+
+
+        <div class="container">
+                <div class="col-sm-4 col-sm-offset-3">
+                  <form class="form-horizontal" role="search" method="get" action=''>
+                     <div class="form-group ">
+                     <div class="input-group">  
+                        <input type="text" class="form-control input-lg " name="q" value="{{ request.GET.q }}" placeholder= "Search Donar " style="height: 40px; width: 50%; font-size: 20px;" />
+                        <span class='input-group-btn'>
+                         <button class='btn btn-info btn-lg'style="height:40px; font-size: 20px;" type='submit'>Search
+                         </button>
+                     </span>
+                    </div>
+                 </div>
+               </form>
+
+
+
+               <div class="container">
+                    <div class="row">
+                    {% for rest in r_object %}
+                    <div class="col-xs-7 col-md-6">
+                  <div class="thumbnail">
+                         
+                    <div class="media-body pl-4">
+                      <a href="" style="text-decoration: none !important;"><h1 class="media-heading text-info mt-1" style="height: 20px;"><strong>{{rest.username}}</strong></h1></a>
+                        <h6 class="text-secondary"><font size="2"><strong>{{rest.items}}</strong></font></h6>
+                        <h4><font size="2">Min: &#x20b9; {{rest.quantitiy}}</font></h4>
+            
+                    </div>
+                     
+                </div>
+            
+              </div>
+            </div>
+            
+            {% endfor%}
+            </div>
+            </div>
+</body>
+</html>
