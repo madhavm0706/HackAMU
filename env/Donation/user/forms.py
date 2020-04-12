@@ -36,4 +36,4 @@ class UserForm(forms.ModelForm):
 class Dona_list(forms.ModelForm):
 	class Meta:
 		model = Donation_list
-		fields = ['items','quantitiy']			
+		fields = ['items']			

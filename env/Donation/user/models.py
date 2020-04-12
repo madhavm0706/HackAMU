@@ -23,8 +23,7 @@ class Donation_list(models.Model):
 
     
 
-    items = models.CharField(max_length=20)
-    quantitiy  = models.IntegerField()
+    items= models.TextField()
 
 	
        

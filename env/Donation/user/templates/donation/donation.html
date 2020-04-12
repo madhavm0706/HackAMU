@@ -38,14 +38,13 @@
     </div>
   </nav>
 
-
+<h3>Enter the items you want to donate, items will be receive by the police and donate to needy peoples.</h3>
   <br><br>
      <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="items">Items</label>
-        <input type="text" name="items">
-        <label for="quantity">Quantity</label>
-        <input type="number" name="quantity">
+        <label for="items">Items</label><br>
+        <textarea style="margin:20px;" name="items" rows="4" cols="50"></textarea>
+        
         
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

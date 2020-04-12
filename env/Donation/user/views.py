@@ -96,8 +96,8 @@ def UserProfile(request,pk=None):
 def dona_list(request):
 	if request.method == 'POST':
 		items = request.POST['items']
-		quantity = request.POST['quantity']
-		dona = Donation_list.objects.create(items=items,quantitiy=quantity)
+		
+		dona = Donation_list.objects.create(items=items)
 		dona.save()
 		return render(request,'donation/donation1.html')
 
